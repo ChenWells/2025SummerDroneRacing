@@ -308,7 +308,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-fpv" action="https://script.google.com/macros/s/AKfycbwiXk9LtO9ybJZVGPDslRS6brXul_kFiyXJKM9LSte6FiEqFJDYh8epKB_D2uPEVwoh/exec" method="post">
+                    <form class="space-y-8" id="form-fpv" action="https://script.google.com/macros/s/AKfycbza75lRRIJeMccqyyr-noHA-4y0JY3t__N3wXnvPN3Ow7x6bNhG9VyG0gQPXdUAJwF7/exec" method="post">
                         <input type="hidden" name="eventType" value="穿越無人機競速闖關賽">
                         
                         <!-- 基本資料卡片 -->
@@ -316,19 +316,25 @@
                             <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#3a0088] rounded-l-lg"></div>
                             <div class="p-6 ml-4 rounded-lg">
                                 <h4 class="text-lg font-semibold text-[#3a0088] border-b pb-2">基本資料</h4>
-                                <div class="grid md:grid-cols-2 gap-6 mt-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">名 / First Name *</label>
-                                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
+                                        <label class="block text-[#3a0088] font-medium mb-2">姓 Last Name *</label>
+                                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的姓氏">
                                     </div>
                                     <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">姓 / Last Name *</label>
-                                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
+                                        <label class="block text-[#3a0088] font-medium mb-2">名 First Name *</label>
+                                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的名字">
                                     </div>
                                 </div>
-                                <div class="mt-4">
-                                    <label class="block text-[#3a0088] font-medium mb-2">飛手外號 Call sign *</label>
-                                    <input type="text" name="callSign" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="例如：飛天象、肉肉...">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">電子郵件 Email *</label>
+                                        <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="example@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">手機 Phone *</label>
+                                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的手機號碼">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -343,7 +349,7 @@
                                         <label class="block text-[#3a0088] font-medium mb-2">團傳 *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="transmission" value="類比" required class="form-radio text-[#3a0088]">
+                                                <input type="radio" name="transmission" value="類比" required class="form-radio text-[#3a0088]" checked>
                                                 <span class="ml-2">類比</span>
                                             </label>
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
@@ -356,7 +362,7 @@
                                         <label class="block text-[#3a0088] font-medium mb-2">飛機尺寸 *</label>
                                         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="size" value="2吋(85mm)" required class="form-radio text-[#3a0088]">
+                                                <input type="radio" name="size" value="2吋(85mm)" required class="form-radio text-[#3a0088]" checked>
                                                 <span class="ml-2">2吋(85mm)</span>
                                             </label>
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
@@ -376,42 +382,6 @@
                                                 <span class="ml-2">75mm</span>
                                             </label>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 聯絡資訊卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#e61c5d] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#e61c5d] border-b pb-2">聯絡資訊</h4>
-                                <div class="grid md:grid-cols-2 gap-6 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">電子信箱 / E-mail *</label>
-                                        <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="example@example.com">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">連絡電話 / Phone Number *</label>
-                                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 其他資訊卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#ffbd39] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#ffbd39] border-b pb-2">其他資訊</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">目前就讀學校/職業</label>
-                                        <input type="text" name="school" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">指導老師(需證明的話)</label>
-                                        <input type="text" name="teacher" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
                                     </div>
                                 </div>
                             </div>
@@ -443,7 +413,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-beginner" action="https://script.google.com/macros/s/AKfycbz7zSTfKZRrK6cFJg4FzNuOJFPzSByiH23xSm193jOjiwYN6q6YbsJH6PHfKiLomeMl/exec" method="post">
+                    <form class="space-y-8" id="form-beginner" action="https://script.google.com/macros/s/AKfycbza75lRRIJeMccqyyr-noHA-4y0JY3t__N3wXnvPN3Ow7x6bNhG9VyG0gQPXdUAJwF7/exec" method="post">
                         <input type="hidden" name="eventType" value="入門無人機競速闖關賽">
                         
                         <!-- 基本資料卡片 -->
@@ -451,19 +421,25 @@
                             <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#3a0088] rounded-l-lg"></div>
                             <div class="p-6 ml-4 rounded-lg">
                                 <h4 class="text-lg font-semibold text-[#3a0088] border-b pb-2">基本資料</h4>
-                                <div class="grid md:grid-cols-2 gap-6 mt-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">名 / First Name *</label>
-                                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
+                                        <label class="block text-[#3a0088] font-medium mb-2">姓 Last Name *</label>
+                                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的姓氏">
                                     </div>
                                     <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">姓 / Last Name *</label>
-                                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
+                                        <label class="block text-[#3a0088] font-medium mb-2">名 First Name *</label>
+                                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的名字">
                                     </div>
                                 </div>
-                                <div class="mt-4">
-                                    <label class="block text-[#3a0088] font-medium mb-2">飛手外號</label>
-                                    <input type="text" name="callSign" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="例如：飛天象、肉肉...">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">電子郵件 Email *</label>
+                                        <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="example@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">手機 Phone *</label>
+                                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的手機號碼">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -478,7 +454,121 @@
                                         <label class="block text-[#3a0088] font-medium mb-2">自備飛機 *</label>
                                         <div class="grid grid-cols-2 gap-4">
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="ownDrone" value="是" required class="form-radio text-[#3a0088]">
+                                                <input type="radio" name="ownDrone" value="是" required class="form-radio text-[#3a0088]" checked>
+                                                <span class="ml-2">是</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
+                                                <input type="radio" name="ownDrone" value="否" required class="form-radio text-[#3a0088]">
+                                                <span class="ml-2">否</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 提交按鈕 -->
+                        <div class="text-center">
+                            <button type="submit" class="bg-gradient-to-r from-[#3a0088] via-[#930077] to-[#e61c5d] text-white px-12 py-4 rounded-lg hover:from-[#930077] hover:via-[#e61c5d] hover:to-[#ffbd39] transition duration-300 font-semibold text-lg shadow-lg hover:shadow-xl">
+                                提交報名
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- 競賽三：入門無人機團體解題競速闖關賽 Modal -->
+            <div id="modal-team" class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-hidden hidden">
+                <div class="flex justify-between items-center mb-6 border-b pb-4">
+                    <h3 class="text-2xl font-bold text-[#3a0088]">入門無人機團體解題競速闖關賽報名表</h3>
+                    <button onclick="closeModal()" class="text-[#3a0088] hover:text-[#930077]">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div class="overflow-y-auto pr-2" style="max-height: calc(90vh - 130px);">
+                    <p class="text-[#3a0088] text-center mb-4">報名截止日期：2025年5月20日</p>
+                    <div class="bg-[#3a0088]/5 p-4 rounded-lg mb-8">
+                        <p class="text-[#3a0088]">
+                            三人一組，一人擔任飛手，操控大會提供之Tello無人機或自備2吋以下無人機，隊友擔任解題手。為求公平，一人僅限歸屬一組，不得報名多組參賽。
+                        </p>
+                    </div>
+                    
+                    <form class="space-y-8" id="form-team" action="https://script.google.com/macros/s/AKfycbza75lRRIJeMccqyyr-noHA-4y0JY3t__N3wXnvPN3Ow7x6bNhG9VyG0gQPXdUAJwF7/exec" method="post">
+                        <input type="hidden" name="eventType" value="入門無人機團體解題競速闖關賽">
+                        
+                        <!-- 隊長資料卡片 -->
+                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
+                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#3a0088] rounded-l-lg"></div>
+                            <div class="p-6 ml-4 rounded-lg">
+                                <h4 class="text-lg font-semibold text-[#3a0088] border-b pb-2">隊長資料</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">隊長姓 Last Name *</label>
+                                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊長姓氏">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">隊長名 First Name *</label>
+                                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊長名字">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">電子郵件 Email *</label>
+                                        <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="example@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">手機 Phone *</label>
+                                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊長手機號碼">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 隊員資料卡片 -->
+                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
+                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#930077] rounded-l-lg"></div>
+                            <div class="p-6 ml-4 rounded-lg">
+                                <h4 class="text-lg font-semibold text-[#930077] border-b pb-2">隊員資料</h4>
+                                <div class="space-y-6 mt-4">
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-[#3a0088] font-medium mb-2">隊員1 名 / First Name *</label>
+                                            <input type="text" name="teamMember1FirstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊員1名字">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[#3a0088] font-medium mb-2">隊員1 姓 / Last Name *</label>
+                                            <input type="text" name="teamMember1LastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊員1姓氏">
+                                        </div>
+                                    </div>
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-[#3a0088] font-medium mb-2">隊員2 名 / First Name *</label>
+                                            <input type="text" name="teamMember2FirstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊員2名字">
+                                        </div>
+                                        <div>
+                                            <label class="block text-[#3a0088] font-medium mb-2">隊員2 姓 / Last Name *</label>
+                                            <input type="text" name="teamMember2LastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入隊員2姓氏">
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <label class="block text-[#3a0088] font-medium mb-2">團隊外號</label>
+                                        <input type="text" name="teamName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="例如：飛天象、穿越者...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 設備資訊卡片 -->
+                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
+                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#e61c5d] rounded-l-lg"></div>
+                            <div class="p-6 ml-4 rounded-lg">
+                                <h4 class="text-lg font-semibold text-[#e61c5d] border-b pb-2">設備資訊</h4>
+                                <div class="space-y-4 mt-4">
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">自備飛機 *</label>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
+                                                <input type="radio" name="ownDrone" value="是" required class="form-radio text-[#3a0088]" checked>
                                                 <span class="ml-2">是</span>
                                             </label>
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
@@ -517,151 +607,11 @@
                                 <div class="space-y-4 mt-4">
                                     <div>
                                         <label class="block text-[#3a0088] font-medium mb-2">目前就讀學校 *</label>
-                                        <input type="text" name="school" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
+                                        <input type="text" name="school" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的學校名稱">
                                     </div>
                                     <div>
                                         <label class="block text-[#3a0088] font-medium mb-2">指導老師(發給老師證明)</label>
-                                        <input type="text" name="teacher" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 提交按鈕 -->
-                        <div class="text-center">
-                            <button type="submit" class="bg-gradient-to-r from-[#3a0088] via-[#930077] to-[#e61c5d] text-white px-12 py-4 rounded-lg hover:from-[#930077] hover:via-[#e61c5d] hover:to-[#ffbd39] transition duration-300 font-semibold text-lg shadow-lg hover:shadow-xl">
-                                提交報名
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- 競賽三：入門無人機團體解題競速闖關賽 Modal -->
-            <div id="modal-team" class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-hidden hidden">
-                <div class="flex justify-between items-center mb-6 border-b pb-4">
-                    <h3 class="text-2xl font-bold text-[#3a0088]">入門無人機團體解題競速闖關賽報名表</h3>
-                    <button onclick="closeModal()" class="text-[#3a0088] hover:text-[#930077]">
-                        <i class="fas fa-times text-2xl"></i>
-                    </button>
-                </div>
-                <div class="overflow-y-auto pr-2" style="max-height: calc(90vh - 130px);">
-                    <p class="text-[#3a0088] text-center mb-4">報名截止日期：2025年5月20日</p>
-                    <div class="bg-[#3a0088]/5 p-4 rounded-lg mb-8">
-                        <p class="text-[#3a0088]">
-                            三人一組，一人擔任飛手，操控大會提供之Tello無人機或自備2吋以下無人機，隊友擔任解題手。為求公平，一人僅限歸屬一組，不得報名多組參賽。
-                        </p>
-                    </div>
-                    
-                    <form class="space-y-8" id="form-team" action="https://script.google.com/macros/s/AKfycbwiOhT_oxJhM7MITp1Cib0WaGyQy59ZNFoQuK_khRdQyADLH7lXJdUCeXmYCD17Ttl4/exec" method="post">
-                        <input type="hidden" name="eventType" value="入門無人機團體解題競速闖關賽">
-                        
-                        <!-- 隊長資料卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#3a0088] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#3a0088] border-b pb-2">隊長資料</h4>
-                                <div class="grid md:grid-cols-2 gap-6 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">名 / First Name *</label>
-                                        <input type="text" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">姓 / Last Name *</label>
-                                        <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 隊員資料卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#930077] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#930077] border-b pb-2">隊員資料</h4>
-                                <div class="space-y-6 mt-4">
-                                    <div class="grid md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-[#3a0088] font-medium mb-2">隊員1 名 / First Name *</label>
-                                            <input type="text" name="teamMember1FirstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[#3a0088] font-medium mb-2">隊員1 姓 / Last Name *</label>
-                                            <input type="text" name="teamMember1LastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                        </div>
-                                    </div>
-                                    <div class="grid md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label class="block text-[#3a0088] font-medium mb-2">隊員2 名 / First Name *</label>
-                                            <input type="text" name="teamMember2FirstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[#3a0088] font-medium mb-2">隊員2 姓 / Last Name *</label>
-                                            <input type="text" name="teamMember2LastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">團隊外號</label>
-                                        <input type="text" name="teamName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="例如：飛天象、肉肉...">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 設備資訊卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#e61c5d] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#e61c5d] border-b pb-2">設備資訊</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">自備飛機 *</label>
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="ownDrone" value="是" required class="form-radio text-[#3a0088]">
-                                                <span class="ml-2">是</span>
-                                            </label>
-                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="ownDrone" value="否" required class="form-radio text-[#3a0088]">
-                                                <span class="ml-2">否</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 聯絡資訊卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#ffbd39] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#ffbd39] border-b pb-2">聯絡資訊</h4>
-                                <div class="grid md:grid-cols-2 gap-6 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">電子信箱 / E-mail *</label>
-                                        <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="example@example.com">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">連絡電話 / Phone Number *</label>
-                                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 其他資訊卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#3a0088] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#3a0088] border-b pb-2">其他資訊</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">目前就讀學校 *</label>
-                                        <input type="text" name="school" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">指導老師(發給老師證明)</label>
-                                        <input type="text" name="teacher" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50">
+                                        <input type="text" name="teacher" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入指導老師姓名（選填）">
                                     </div>
                                 </div>
                             </div>
@@ -693,7 +643,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-workshop" action="https://script.google.com/macros/s/AKfycbwlExjnWU75A2scetPnVlaC6VNLuA2UR16UM1IpSPrX3O9nHksIWY3Qyzq-lVKdVzcK/exec" method="post">
+                    <form class="space-y-8" id="form-workshop" action="https://script.google.com/macros/s/AKfycbza75lRRIJeMccqyyr-noHA-4y0JY3t__N3wXnvPN3Ow7x6bNhG9VyG0gQPXdUAJwF7/exec" method="post">
                         <input type="hidden" name="eventType" value="無人機與穿越機研習">
                         
                         <!-- 基本資料卡片 -->
@@ -710,16 +660,22 @@
                                         <label class="block text-[#3a0088] font-medium mb-2">姓 / Last Name *</label>
                                         <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的姓氏">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 聯絡資訊卡片 -->
+                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
+                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#e61c5d] rounded-l-lg"></div>
+                            <div class="p-6 ml-4 rounded-lg">
+                                <h4 class="text-lg font-semibold text-[#e61c5d] border-b pb-2">聯絡資訊</h4>
+                                <div class="grid md:grid-cols-2 gap-6 mt-4">
                                     <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">飛手外號 Pilot Nickname *</label>
-                                        <input type="text" name="nickname" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的飛手外號">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">電子郵件 Email *</label>
+                                        <label class="block text-[#3a0088] font-medium mb-2">電子信箱 / E-mail *</label>
                                         <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="example@example.com">
                                     </div>
                                     <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">手機 Phone *</label>
+                                        <label class="block text-[#3a0088] font-medium mb-2">連絡電話 / Phone Number *</label>
                                         <input type="tel" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="輸入您的手機號碼">
                                     </div>
                                 </div>
@@ -746,6 +702,25 @@
                                             <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
                                                 <input type="radio" name="identity" value="社會人士" required class="form-radio text-[#3a0088]">
                                                 <span class="ml-2">社會人士</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 便當選項 -->
+                                    <div>
+                                        <label class="block text-[#3a0088] font-medium mb-2">便當選項 *</label>
+                                        <div class="grid grid-cols-3 gap-4">
+                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
+                                                <input type="radio" name="mealOption" value="葷食" required class="form-radio text-[#3a0088]" checked>
+                                                <span class="ml-2">葷食</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
+                                                <input type="radio" name="mealOption" value="素食" required class="form-radio text-[#3a0088]">
+                                                <span class="ml-2">素食</span>
+                                            </label>
+                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
+                                                <input type="radio" name="mealOption" value="不需要提供" required class="form-radio text-[#3a0088]">
+                                                <span class="ml-2">不需要提供</span>
                                             </label>
                                         </div>
                                     </div>
@@ -793,33 +768,6 @@
                                                 <label class="block text-[#3a0088] font-medium mb-2">公司名稱 *</label>
                                                 <input type="text" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="請輸入您的公司名稱">
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 便當選項卡片 -->
-                        <div class="relative rounded-lg shadow-md bg-white overflow-visible">
-                            <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#ffbd39] rounded-l-lg"></div>
-                            <div class="p-6 ml-4 rounded-lg">
-                                <h4 class="text-lg font-semibold text-[#ffbd39] border-b pb-2">便當選項</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">便當選項 *</label>
-                                        <div class="grid grid-cols-3 gap-4">
-                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="mealOption" value="葷食" required class="form-radio text-[#3a0088]" checked>
-                                                <span class="ml-2">葷食</span>
-                                            </label>
-                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="mealOption" value="素食" required class="form-radio text-[#3a0088]">
-                                                <span class="ml-2">素食</span>
-                                            </label>
-                                            <label class="flex items-center p-3 border rounded-lg hover:bg-[#3a0088]/5 cursor-pointer">
-                                                <input type="radio" name="mealOption" value="不需要提供" required class="form-radio text-[#3a0088]">
-                                                <span class="ml-2">不需要提供</span>
-                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -958,16 +906,38 @@
                     // 使用 fetch API 提交表單到 Google 表單
                     const formData = new FormData(form);
                     
+                    // 確保便當選項被正確提交
+                    if (formId === 'form-workshop') {
+                        const mealOption = formData.get('mealOption');
+                        console.log("便當選項:", mealOption);
+                        if (!mealOption) {
+                            // 如果沒有選擇便當選項，選擇默認值
+                            const defaultMealOption = document.querySelector('input[name="mealOption"]:checked')?.value || '葷食';
+                            formData.set('mealOption', defaultMealOption);
+                            console.log("設置默認便當選項:", defaultMealOption);
+                        }
+                    }
+                    
                     // 如果是研習表單，根據身份處理額外欄位
                     if (formId === 'form-workshop') {
                         const identity = formData.get('identity');
+                        console.log("身份類型:", identity);
                         if (identity === '社會人士') {
                             // 確保社會人士相關欄位被包含在提交資料中
-                            formData.append('school', '');
-                            formData.append('department', '');
-                            formData.append('teacherSchool', '');
-                            formData.append('teacherDepartment', '');
-                            formData.append('teacherTitle', '');
+                            if (!formData.get('school')) formData.append('school', '');
+                            if (!formData.get('department')) formData.append('department', '');
+                            if (!formData.get('teacherSchool')) formData.append('teacherSchool', '');
+                            if (!formData.get('teacherDepartment')) formData.append('teacherDepartment', '');
+                            if (!formData.get('teacherTitle')) formData.append('teacherTitle', '');
+                        } else if (identity === '教師') {
+                            if (!formData.get('school')) formData.append('school', '');
+                            if (!formData.get('department')) formData.append('department', '');
+                        } else if (identity === '學生') {
+                            if (!formData.get('teacherSchool')) formData.append('teacherSchool', '');
+                            if (!formData.get('teacherDepartment')) formData.append('teacherDepartment', '');
+                            if (!formData.get('teacherTitle')) formData.append('teacherTitle', '');
+                            if (!formData.get('profession')) formData.append('profession', '');
+                            if (!formData.get('company')) formData.append('company', '');
                         }
                     }
                     
@@ -1001,40 +971,18 @@
                     formData.append('submissionTime', new Date().toISOString());
                     formData.append('sendEmail', 'yes'); // 指示Google Apps Script發送通知郵件
                     
-                    // 確保便當選項被正確提交
-                    if (formId === 'form-workshop') {
-                        const mealOption = formData.get('mealOption');
-                        console.log("便當選項:", mealOption);
-                        if (!mealOption) {
-                            // 如果沒有選擇便當選項，選擇默認值
-                            const defaultMealOption = document.querySelector('input[name="mealOption"]:checked')?.value || '葷食';
-                            formData.set('mealOption', defaultMealOption);
-                            console.log("設置默認便當選項:", defaultMealOption);
-                        }
-                    }
-                    
-                    // 確保團傳和飛機尺寸正確提交
-                    if (formData.has('transmission') && formId !== 'form-workshop') {
-                        formData.append('teamName', formData.get('transmission'));
-                    }
-                    
-                    if (formData.has('size') && formId !== 'form-workshop') {
-                        formData.append('droneSize', formData.get('size'));
-                    }
-                    
                     // 記錄提交的數據（僅用於調試）
                     console.log(`正在提交表單: ${formId}`);
                     console.log(`活動類型: ${formData.get('eventType')}`);
                     console.log(`提交URL: ${form.action}`);
                     
-                    // 提交到 Google 表單
+                    // 提交到 Google 表單 - 使用最簡單的方式
                     fetch(form.action, {
                         method: 'POST',
                         body: formData,
-                        mode: 'no-cors' // 重要：使用 no-cors 模式處理跨域請求
+                        mode: 'no-cors' // 必須使用no-cors模式解決跨域問題
                     }).then(() => {
                         console.log('表單提交成功');
-                        console.log(`表單ID: ${formId}, 活動類型: ${formData.get('eventType')}`);
                         
                         // 顯示成功訊息
                         setTimeout(function() {
@@ -1053,22 +1001,15 @@
                         }, 1000);
                     }).catch(error => {
                         console.error('表單提交錯誤:', error);
-                        console.error(`表單ID: ${formId}, 活動類型: ${formData.get('eventType')}`);
                         
-                        // 顯示成功訊息（即使有錯誤也顯示成功，因為 no-cors 無法真正檢測錯誤）
+                        // 顯示錯誤訊息
                         setTimeout(function() {
                             // 恢復提交按鈕狀態
                             submitBtn.innerHTML = originalText;
                             submitBtn.disabled = false;
                             
-                            // 顯示成功訊息
-                            alert('報名資料已提交！感謝您的報名。');
-                            
-                            // 關閉模態框
-                            closeModal();
-                            
-                            // 重置表單
-                            form.reset();
+                            // 顯示錯誤訊息
+                            alert('報名資料提交時可能發生錯誤，請稍後再試或聯絡管理員。');
                         }, 1000);
                     });
                 });
