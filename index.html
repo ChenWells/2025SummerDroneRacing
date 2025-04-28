@@ -39,6 +39,7 @@
                     <a href="#prizes" class="text-[#3a0088] hover:text-[#930077]">賽事獎金</a>
                     <a href="#location" class="text-[#3a0088] hover:text-[#930077]">競賽場地</a>
                     <a href="#register" class="bg-[#3a0088] text-white px-4 py-2 rounded-lg hover:bg-[#930077]">立即報名</a>
+                    <button id="testAllForms" class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 ml-4">一鍵測試所有表單</button>
                 </div>
             </div>
         </div>
@@ -310,7 +311,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-fpv" action="https://script.google.com/macros/s/AKfycbyVEMLk7Ony_ffLcgL_wZsty2sTccPnfFfnvi0OZvcBdDF1BrkSEkK5lPgCVc6BpxFM/exec" method="post">
+                    <form class="space-y-8" id="form-fpv" action="https://script.google.com/macros/s/AKfycbylbXywDGdSdySbHVeo9l3Ifs0wG2gdA58yssurQT_NyNiJznWbrcFk6CKF-ILd5pvr/exec" method="post">
                         <input type="hidden" name="eventType" value="穿越無人機競速闖關賽">
                         
                         <!-- 基本資料卡片 -->
@@ -445,7 +446,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-beginner" action="https://script.google.com/macros/s/AKfycbyVEMLk7Ony_ffLcgL_wZsty2sTccPnfFfnvi0OZvcBdDF1BrkSEkK5lPgCVc6BpxFM/exec" method="post">
+                    <form class="space-y-8" id="form-beginner" action="https://script.google.com/macros/s/AKfycbylbXywDGdSdySbHVeo9l3Ifs0wG2gdA58yssurQT_NyNiJznWbrcFk6CKF-ILd5pvr/exec" method="post">
                         <input type="hidden" name="eventType" value="入門無人機競速闖關賽">
                         
                         <!-- 基本資料卡片 -->
@@ -555,7 +556,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-team" action="https://script.google.com/macros/s/AKfycbyVEMLk7Ony_ffLcgL_wZsty2sTccPnfFfnvi0OZvcBdDF1BrkSEkK5lPgCVc6BpxFM/exec" method="post">
+                    <form class="space-y-8" id="form-team" action="https://script.google.com/macros/s/AKfycbylbXywDGdSdySbHVeo9l3Ifs0wG2gdA58yssurQT_NyNiJznWbrcFk6CKF-ILd5pvr/exec" method="post">
                         <input type="hidden" name="eventType" value="入門無人機團體解題競速闖關賽">
                         
                         <!-- 隊長資料卡片 -->
@@ -695,7 +696,7 @@
                         </p>
                     </div>
                     
-                    <form class="space-y-8" id="form-workshop" action="https://script.google.com/macros/s/AKfycbyVEMLk7Ony_ffLcgL_wZsty2sTccPnfFfnvi0OZvcBdDF1BrkSEkK5lPgCVc6BpxFM/exec" method="post">
+                    <form class="space-y-8" id="form-workshop" action="https://script.google.com/macros/s/AKfycbylbXywDGdSdySbHVeo9l3Ifs0wG2gdA58yssurQT_NyNiJznWbrcFk6CKF-ILd5pvr/exec" method="post">
                         <input type="hidden" name="eventType" value="無人機與穿越機研習">
                         
                         <!-- 基本資料卡片 -->
@@ -711,10 +712,6 @@
                                     <div>
                                         <label class="block text-[#3a0088] font-medium mb-2">姓 / Last Name *</label>
                                         <input type="text" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="請輸入您的姓氏">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[#3a0088] font-medium mb-2">飛手外號 Pilot Nickname *</label>
-                                        <input type="text" name="nickname" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3a0088] focus:border-[#3a0088] bg-gray-50" placeholder="例如：飛天象、肉肉...">
                                     </div>
                                     <div>
                                         <label class="block text-[#3a0088] font-medium mb-2">電子郵件 Email *</label>
@@ -941,143 +938,277 @@
 
         // 表單提交處理
         document.addEventListener('DOMContentLoaded', function() {
-            // 處理所有報名表單的提交
-            const forms = ['form-fpv', 'form-beginner', 'form-team', 'form-workshop'];
-            
-            forms.forEach(formId => {
-                const form = document.getElementById(formId);
+            // 添加預填測試資料的函數
+            function fillTestData(form) {
+                const testData = {
+                    // 基本資料
+                    'firstName': '測試',
+                    'lastName': '用戶',
+                    'email': 'ai1@fgchen.com',
+                    'phone': '0912345678',
+                    
+                    // 團隊資料
+                    'teamName': '測試團隊',
+                    'teamMember1LastName': '隊員1',
+                    'teamMember1FirstName': '姓',
+                    'teamMember2LastName': '隊員2',
+                    'teamMember2FirstName': '姓',
+                    
+                    // 設備資訊
+                    'ownDrone': '是',
+                    'transmission': '測試團傳',
+                    'size': '5寸',
+                    
+                    // 其他資訊
+                    'school': '測試學校',
+                    'teacher': '測試老師',
+                    
+                    // 研習活動特定欄位
+                    'identity': '學生',
+                    'department': '測試科系 二年級',
+                    'teacherSchool': '測試教師學校',
+                    'teacherDepartment': '測試教師科系',
+                    'teacherTitle': '助理教授',
+                    'profession': '工程師',
+                    'company': '測試公司',
+                    'mealOption': '葷食'
+                };
                 
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault(); // 阻止表單正常提交
-                    // console.log('表單提交: ' + formId);
-                    
-                    // 取得提交按鈕並更新狀態
-                    const submitBtn = form.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.innerHTML;
-                    submitBtn.innerHTML = '提交中...';
-                    submitBtn.disabled = true;
-                    
-                    // 使用 fetch API 提交表單到 Google 表單
-                    const formData = new FormData(form);
-                    
-                    // 如果是研習表單，根據身份處理額外欄位
-                    if (formId === 'form-workshop') {
-                        const identity = formData.get('identity');
-                        if (identity === '社會人士') {
-                            // 確保社會人士相關欄位被包含在提交資料中
-                            formData.append('school', '');
-                            formData.append('department', '');
-                            formData.append('teacherSchool', '');
-                            formData.append('teacherDepartment', '');
-                            formData.append('teacherTitle', '');
-                        }
-                        
-                        // 確保便當選項被正確提交
-                        const mealOption = formData.get('mealOption');
-                        console.log("便當選項:", mealOption);
-                        if (!mealOption) {
-                            // 如果沒有選擇便當選項，選擇默認值
-                            const defaultMealOption = document.querySelector('input[name="mealOption"]:checked')?.value || '葷食';
-                            formData.set('mealOption', defaultMealOption);
-                            console.log("設置默認便當選項:", defaultMealOption);
+                // 遍歷表單中的所有輸入欄位
+                for (let [key, value] of Object.entries(testData)) {
+                    const input = form.querySelector(`[name="${key}"]`);
+                    if (input) {
+                        if (input.type === 'radio') {
+                            // 對於單選按鈕，找到對應的值並選中
+                            const radio = form.querySelector(`[name="${key}"][value="${value}"]`);
+                            if (radio) radio.checked = true;
+                        } else {
+                            // 對於其他類型的輸入，直接設置值
+                            input.value = value;
                         }
                     }
-                    
-                    // 確保eventType存在，如果表單中沒有，則添加它
-                    if (!formData.get('eventType')) {
-                        if (formId === 'form-workshop') {
-                            formData.append('eventType', '無人機與穿越機研習');
-                        } else if (formId === 'form-fpv') {
-                            formData.append('eventType', '穿越無人機競速闖關賽');
-                        } else if (formId === 'form-beginner') {
-                            formData.append('eventType', '入門無人機競速闖關賽');
-                        } else if (formId === 'form-team') {
-                            formData.append('eventType', '入門無人機團體解題競速闖關賽');
-                        }
-                    }
-                    
-                    // 為保持兼容性，也添加activityType參數
-                    formData.append('activityType', formData.get('eventType'));
-                    
-                    // 調試: 輸出完整的表單數據，查看提交內容
-                    let formDataOutput = {};
-                    for (let pair of formData.entries()) {
-                        formDataOutput[pair[0]] = pair[1];
-                    }
-                    console.log("完整表單數據:", JSON.stringify(formDataOutput));
-                    
-                    // 添加報名者姓名和聯絡資訊
-                    const firstName = formData.get('firstName');
-                    const lastName = formData.get('lastName');
-                    formData.append('fullName', `${lastName}${firstName}`);
-                    formData.append('submissionTime', new Date().toISOString());
-                    formData.append('sendEmail', 'yes'); // 指示Google Apps Script發送通知郵件
-                    
-                    // 確保團傳和飛機尺寸正確提交
-                    if (formData.has('transmission') && formId !== 'form-workshop') {
-                        formData.append('teamName', formData.get('transmission'));
-                    }
-                    
-                    if (formData.has('size') && formId !== 'form-workshop') {
-                        formData.append('droneSize', formData.get('size'));
-                    }
-                    
-                    // 記錄提交的數據（僅用於調試）
-                    console.log(`正在提交表單: ${formId}`);
-                    console.log(`活動類型: ${formData.get('eventType')}`);
-                    console.log(`提交URL: ${form.action}`);
-                    
-                    // 前端提交表單時添加更詳細的日誌記錄
-                    console.log("團隊外號:", formData.get('teamName'));
-                    console.log("自備飛機:", formData.get('ownDrone'));
-                    console.log("隊員1姓名:", formData.get('teamMember1LastName') + formData.get('teamMember1FirstName'));
-                    console.log("隊員2姓名:", formData.get('teamMember2LastName') + formData.get('teamMember2FirstName'));
-                    
-                    // 提交到 Google 表單
-                    fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        mode: 'no-cors' // 重要：使用 no-cors 模式處理跨域請求
-                    }).then(() => {
-                        console.log('表單提交成功');
-                        console.log(`表單ID: ${formId}, 活動類型: ${formData.get('eventType')}`);
-                        
-                        // 顯示成功訊息
-                        setTimeout(function() {
-                            // 恢復提交按鈕狀態
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.disabled = false;
-                            
-                            // 顯示成功訊息
-                            alert('報名資料已提交！感謝您的報名。');
-                            
-                            // 關閉模態框
-                            closeModal();
-                            
-                            // 重置表單
-                            form.reset();
-                        }, 1000);
-                    }).catch(error => {
-                        console.error('表單提交錯誤:', error);
-                        console.error(`表單ID: ${formId}, 活動類型: ${formData.get('eventType')}`);
-                        
-                        // 顯示成功訊息（即使有錯誤也顯示成功，因為 no-cors 無法真正檢測錯誤）
-                        setTimeout(function() {
-                            // 恢復提交按鈕狀態
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.disabled = false;
-                            
-                            // 顯示成功訊息
-                            alert('報名資料已提交！感謝您的報名。');
-                            
-                            // 關閉模態框
-                            closeModal();
-                            
-                            // 重置表單
-                            form.reset();
-                        }, 1000);
-                    });
+                }
+            }
+            
+            // 添加測試表單提交函數
+            window.testFormSubmission = function(formId) {
+                const form = document.getElementById(formId);
+                if (!form) {
+                    console.error(`表單 ${formId} 不存在`);
+                    return;
+                }
+                
+                // 填充測試數據
+                fillTestData(form);
+                
+                // 將數據準備為請求格式
+                let formData = new FormData(form);
+                let formDataObj = {};
+                for (let pair of formData.entries()) {
+                    formDataObj[pair[0]] = pair[1];
+                }
+                
+                // 構建正確的請求格式
+                const requestData = {
+                    eventType: formData.get('eventType'),
+                    params: formDataObj
+                };
+                
+                // 顯示發送的數據
+                console.log("發送數據:", JSON.stringify(requestData));
+                
+                // 發送請求
+                fetch("https://script.google.com/macros/s/AKfycbylbXywDGdSdySbHVeo9l3Ifs0wG2gdA58yssurQT_NyNiJznWbrcFk6CKF-ILd5pvr/exec", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData),
+                    mode: 'no-cors'
+                }).then(() => {
+                    console.log(`表單 ${formId} 提交成功`);
+                    alert(`表單 ${formId} 提交成功！系統將發送確認郵件至 ${formDataObj.email}`);
+                }).catch(error => {
+                    console.error(`提交表單 ${formId} 失敗:`, error);
+                    alert(`提交表單 ${formId} 失敗: ${error}`);
                 });
+            };
+            
+            // 處理所有報名表單的提交
+            const allForms = ['form-fpv', 'form-beginner', 'form-team', 'form-workshop'];
+            
+            // 為每個表單添加測試按鈕
+            allForms.forEach(formId => {
+                const form = document.getElementById(formId);
+                if (form) {
+                    // 添加測試按鈕
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    if (submitBtn && submitBtn.parentNode) {
+                        const testBtn = document.createElement('button');
+                        testBtn.type = 'button';
+                        testBtn.className = 'bg-yellow-500 text-white px-8 py-3 rounded-lg hover:bg-yellow-600 transition duration-300 font-semibold text-lg shadow-lg hover:shadow-xl ml-4';
+                        testBtn.textContent = '一鍵測試';
+                        testBtn.onclick = function() {
+                            window.testFormSubmission(formId);
+                        };
+                        submitBtn.parentNode.appendChild(testBtn);
+                    }
+                }
+            });
+            
+            // 處理所有報名表單的提交
+            allForms.forEach(formId => {
+                const form = document.getElementById(formId);
+                if (form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault(); // 阻止表單正常提交
+                        // console.log('表單提交: ' + formId);
+                        
+                        // 取得提交按鈕並更新狀態
+                        const submitBtn = form.querySelector('button[type="submit"]');
+                        const originalText = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '提交中...';
+                        submitBtn.disabled = true;
+                        
+                        // 使用 fetch API 提交表單到 Google 表單
+                        const formData = new FormData(form);
+                        
+                        // 如果是研習表單，根據身份處理額外欄位
+                        if (formId === 'form-workshop') {
+                            const identity = formData.get('identity');
+                            if (identity === '社會人士') {
+                                // 確保社會人士相關欄位被包含在提交資料中
+                                formData.append('school', '');
+                                formData.append('department', '');
+                                formData.append('teacherSchool', '');
+                                formData.append('teacherDepartment', '');
+                                formData.append('teacherTitle', '');
+                            }
+                            
+                            // 確保便當選項被正確提交
+                            const mealOption = formData.get('mealOption');
+                            console.log("便當選項:", mealOption);
+                            if (!mealOption) {
+                                // 如果沒有選擇便當選項，選擇默認值
+                                const defaultMealOption = document.querySelector('input[name="mealOption"]:checked')?.value || '葷食';
+                                formData.set('mealOption', defaultMealOption);
+                                console.log("設置默認便當選項:", defaultMealOption);
+                            }
+                        }
+                        
+                        // 確保eventType存在，如果表單中沒有，則添加它
+                        if (!formData.get('eventType')) {
+                            if (formId === 'form-workshop') {
+                                formData.append('eventType', '無人機與穿越機研習');
+                            } else if (formId === 'form-fpv') {
+                                formData.append('eventType', '穿越無人機競速闖關賽');
+                            } else if (formId === 'form-beginner') {
+                                formData.append('eventType', '入門無人機競速闖關賽');
+                            } else if (formId === 'form-team') {
+                                formData.append('eventType', '入門無人機團體解題競速闖關賽');
+                            }
+                        }
+                        
+                        // 為保持兼容性，也添加activityType參數
+                        formData.append('activityType', formData.get('eventType'));
+                        
+                        // 調試: 輸出完整的表單數據，查看提交內容
+                        let formDataOutput = {};
+                        for (let pair of formData.entries()) {
+                            formDataOutput[pair[0]] = pair[1];
+                        }
+                        console.log("完整表單數據:", JSON.stringify(formDataOutput));
+                        
+                        // 添加報名者姓名和聯絡資訊
+                        const firstName = formData.get('firstName');
+                        const lastName = formData.get('lastName');
+                        formData.append('fullName', `${lastName}${firstName}`);
+                        formData.append('submissionTime', new Date().toISOString());
+                        formData.append('sendEmail', 'yes'); // 指示Google Apps Script發送通知郵件
+                        
+                        // 確保團傳和飛機尺寸正確提交
+                        if (formData.has('transmission') && formId !== 'form-workshop') {
+                            formData.append('teamName', formData.get('transmission'));
+                        }
+                        
+                        if (formData.has('size') && formId !== 'form-workshop') {
+                            formData.append('droneSize', formData.get('size'));
+                        }
+                        
+                        // 記錄提交的數據（僅用於調試）
+                        console.log(`正在提交表單: ${formId}`);
+                        console.log(`活動類型: ${formData.get('eventType')}`);
+                        console.log(`提交URL: ${form.action}`);
+                        
+                        // 前端提交表單時添加更詳細的日誌記錄
+                        console.log("團隊外號:", formData.get('teamName'));
+                        console.log("自備飛機:", formData.get('ownDrone'));
+                        console.log("隊員1姓名:", formData.get('teamMember1LastName') + formData.get('teamMember1FirstName'));
+                        console.log("隊員2姓名:", formData.get('teamMember2LastName') + formData.get('teamMember2FirstName'));
+                        
+                        // 轉換表單數據為後端期望的格式
+                        let formDataObj = {};
+                        for (let pair of formData.entries()) {
+                            formDataObj[pair[0]] = pair[1];
+                        }
+                        
+                        // 構建正確的請求格式
+                        const requestData = {
+                            eventType: formData.get('eventType'),
+                            params: formDataObj
+                        };
+                        
+                        console.log("發送到後端的數據:", JSON.stringify(requestData));
+                        
+                        // 提交到 Google Apps Script
+                        fetch(form.action, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(requestData),
+                            mode: 'no-cors' // 重要：使用 no-cors 模式處理跨域請求
+                        }).then(() => {
+                            console.log('表單提交成功');
+                            console.log(`表單ID: ${formId}, 活動類型: ${formData.get('eventType')}`);
+                            
+                            // 顯示成功訊息
+                            setTimeout(function() {
+                                // 恢復提交按鈕狀態
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.disabled = false;
+                                
+                                // 顯示成功訊息
+                                alert('報名資料已提交！感謝您的報名。系統將發送一封確認郵件至您提供的信箱，請注意查收。');
+                                
+                                // 關閉模態框
+                                closeModal();
+                                
+                                // 重置表單
+                                form.reset();
+                            }, 1000);
+                        }).catch(error => {
+                            console.error('表單提交錯誤:', error);
+                            console.error(`表單ID: ${formId}, 活動類型: ${formData.get('eventType')}`);
+                            
+                            // 顯示成功訊息（即使有錯誤也顯示成功，因為 no-cors 無法真正檢測錯誤）
+                            setTimeout(function() {
+                                // 恢復提交按鈕狀態
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.disabled = false;
+                                
+                                // 顯示成功訊息
+                                alert('報名資料已提交！感謝您的報名。系統將發送一封確認郵件至您提供的信箱，請注意查收。');
+                                
+                                // 關閉模態框
+                                closeModal();
+                                
+                                // 重置表單
+                                form.reset();
+                            }, 1000);
+                        });
+                    });
+                }
             });
 
             // 處理研習活動表單的身份選擇
@@ -1134,6 +1265,21 @@
                             input.required = false;
                         });
                     }
+                });
+            });
+
+            // 添加一鍵測試所有表單的功能
+            document.getElementById('testAllForms').addEventListener('click', function() {
+                // 測試所有表單
+                const allForms = ['form-fpv', 'form-beginner', 'form-team', 'form-workshop'];
+                console.log('開始測試所有表單...');
+                
+                // 依次測試每個表單，使用延遲避免同時發送請求
+                allForms.forEach((formId, index) => {
+                    setTimeout(() => {
+                        console.log(`測試表單: ${formId}`);
+                        window.testFormSubmission(formId);
+                    }, index * 1500); // 每個表單測試間隔1.5秒
                 });
             });
         });
