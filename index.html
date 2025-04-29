@@ -1108,6 +1108,11 @@
                     teacherInfo.classList.add('hidden');
                     professionalInfo.classList.add('hidden');
                     
+                    // 移除所有隱藏區塊中輸入框的required屬性
+                    document.querySelectorAll('#student-info input, #teacher-info input, #professional-info input').forEach(input => {
+                        input.required = false;
+                    });
+                    
                     // 根據選擇顯示相應的資訊區塊
                     if (this.value === '學生') {
                         studentInfo.classList.remove('hidden');
@@ -1115,25 +1120,11 @@
                         studentInfo.querySelectorAll('input').forEach(input => {
                             input.required = true;
                         });
-                        // 取消其他身份欄位的必填
-                        teacherInfo.querySelectorAll('input').forEach(input => {
-                            input.required = false;
-                        });
-                        professionalInfo.querySelectorAll('input').forEach(input => {
-                            input.required = false;
-                        });
                     } else if (this.value === '教師') {
                         teacherInfo.classList.remove('hidden');
                         // 設置必填欄位
                         teacherInfo.querySelectorAll('input').forEach(input => {
                             input.required = true;
-                        });
-                        // 取消其他身份欄位的必填
-                        studentInfo.querySelectorAll('input').forEach(input => {
-                            input.required = false;
-                        });
-                        professionalInfo.querySelectorAll('input').forEach(input => {
-                            input.required = false;
                         });
                     } else if (this.value === '社會人士') {
                         professionalInfo.classList.remove('hidden');
@@ -1141,15 +1132,17 @@
                         professionalInfo.querySelectorAll('input').forEach(input => {
                             input.required = true;
                         });
-                        // 取消其他身份欄位的必填
-                        studentInfo.querySelectorAll('input').forEach(input => {
-                            input.required = false;
-                        });
-                        teacherInfo.querySelectorAll('input').forEach(input => {
-                            input.required = false;
-                        });
                     }
                 });
+            });
+            
+            // 初始化表單身份狀態
+            document.addEventListener('DOMContentLoaded', function() {
+                // 獲取初始選中的身份
+                const selectedIdentity = document.querySelector('input[name="identity"]:checked');
+                if (selectedIdentity) {
+                    selectedIdentity.dispatchEvent(new Event('change'));
+                }
             });
         });
 
