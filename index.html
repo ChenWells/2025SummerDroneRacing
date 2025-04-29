@@ -863,6 +863,15 @@
             // 顯示 modal 容器
             document.getElementById('modal-container').classList.remove('hidden');
             document.body.style.overflow = 'hidden'; // 防止背景滾動
+            
+            // 如果打開的是研習表單，初始化身份選擇
+            if(type === 'workshop') {
+                // 獲取初始選中的身份
+                const selectedIdentity = document.querySelector('input[name="identity"]:checked');
+                if (selectedIdentity) {
+                    selectedIdentity.dispatchEvent(new Event('change'));
+                }
+            }
         }
 
         function closeModal() {
@@ -935,7 +944,7 @@
             });
         });
 
-        // 表單提交處理
+        // 表單提交和身份處理初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 處理所有報名表單的提交
             const allForms = ['form-fpv', 'form-beginner', 'form-team', 'form-workshop'];
@@ -946,7 +955,27 @@
                 if (form) {
                     form.addEventListener('submit', function(e) {
                         e.preventDefault(); // 阻止表單正常提交
-                        // console.log('表單提交: ' + formId);
+                        
+                        // 特殊處理研習表單，確保隱藏欄位不會造成驗證問題
+                        if (formId === 'form-workshop') {
+                            // 獲取目前選擇的身份
+                            const identity = document.querySelector('input[name="identity"]:checked').value;
+                            
+                            // 根據身份移除不相關欄位的required屬性
+                            if (identity === '學生') {
+                                document.querySelectorAll('#teacher-info input, #professional-info input').forEach(input => {
+                                    input.required = false;
+                                });
+                            } else if (identity === '教師') {
+                                document.querySelectorAll('#student-info input, #professional-info input').forEach(input => {
+                                    input.required = false;
+                                });
+                            } else if (identity === '社會人士') {
+                                document.querySelectorAll('#student-info input, #teacher-info input').forEach(input => {
+                                    input.required = false;
+                                });
+                            }
+                        }
                         
                         // 取得提交按鈕並更新狀態
                         const submitBtn = form.querySelector('button[type="submit"]');
@@ -967,6 +996,19 @@
                                 formData.append('teacherSchool', '');
                                 formData.append('teacherDepartment', '');
                                 formData.append('teacherTitle', '');
+                            } else if (identity === '學生') {
+                                // 學生相關欄位
+                                formData.append('teacherSchool', '');
+                                formData.append('teacherDepartment', '');
+                                formData.append('teacherTitle', '');
+                                formData.append('profession', '');
+                                formData.append('company', '');
+                            } else if (identity === '教師') {
+                                // 教師相關欄位
+                                formData.append('school', '');
+                                formData.append('department', '');
+                                formData.append('profession', '');
+                                formData.append('company', '');
                             }
                             
                             // 確保便當選項被正確提交
@@ -1108,7 +1150,7 @@
                     teacherInfo.classList.add('hidden');
                     professionalInfo.classList.add('hidden');
                     
-                    // 移除所有隱藏區塊中輸入框的required屬性
+                    // 移除所有輸入框的required屬性
                     document.querySelectorAll('#student-info input, #teacher-info input, #professional-info input').forEach(input => {
                         input.required = false;
                     });
@@ -1134,15 +1176,6 @@
                         });
                     }
                 });
-            });
-            
-            // 初始化表單身份狀態
-            document.addEventListener('DOMContentLoaded', function() {
-                // 獲取初始選中的身份
-                const selectedIdentity = document.querySelector('input[name="identity"]:checked');
-                if (selectedIdentity) {
-                    selectedIdentity.dispatchEvent(new Event('change'));
-                }
             });
         });
 
