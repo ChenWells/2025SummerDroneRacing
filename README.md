@@ -116,3 +116,59 @@ GPS座標：24.21612232201235, 120.58396194693957
 ## 贊助單位
 - 弘光科技大學
 - 智慧科技應用系
+
+## 確保確認郵件功能正常運作
+
+為了讓報名者能收到確認郵件，請確保新的Google Apps Script包含以下關鍵函數:
+
+```javascript
+// 發送確認郵件給報名者
+function sendConfirmationEmail(params, eventType) {
+  const fullName = params.lastName + params.firstName;
+  let subject = `2025弘光科大穿越機研習競賽報名確認 - ${eventType}`;
+  let body = `親愛的 ${fullName} 您好，\n\n`;
+  body += `感謝您報名參加「2025弘光科大穿越機研習與競賽」的「${eventType}」活動。\n\n`;
+  body += `我們已收到您的報名資料，以下是您的報名資訊：\n`;
+  body += `姓名：${fullName}\n`;
+  body += `電子郵件：${params.email}\n`;
+  body += `連絡電話：${params.phone}\n\n`;
+  
+  if (eventType === '無人機與穿越機研習') {
+    body += `便當選項：${params.mealOption || '未指定'}\n\n`;
+  }
+  
+  body += `活動日期：2025年5月24日\n`;
+  body += `活動地點：弘光科技大學智慧科技大樓七樓無人機教育中心\n\n`;
+  body += `如有任何問題，請聯絡活動負責人：\n`;
+  body += `陳富國 老師\n`;
+  body += `LINE：fgchen\n\n`;
+  body += `期待您的參與！\n\n`;
+  body += `敬祝 平安順心\n\n`;
+  body += `弘光科技大學智慧科技應用系 敬上`;
+  
+  // 發送郵件
+  MailApp.sendEmail({
+    to: params.email,
+    subject: subject,
+    body: body
+  });
+  
+  Logger.log("報名確認郵件已發送至: " + params.email);
+}
+```
+
+並在doPost函數中添加以下代碼來調用確認郵件發送函數:
+
+```javascript
+// 嘗試發送電子郵件通知給報名者
+try {
+  // 只有當 sendEmail 參數為 'yes' 且有提供電子郵件時，才發送確認郵件給報名者
+  if (params.sendEmail === 'yes' && params.email) {
+    sendConfirmationEmail(params, eventType);
+  }
+} catch (emailError) {
+  Logger.log("發送報名者確認郵件失敗: " + emailError);
+}
+```
+
+請確保新的Google Apps Script包含這些函數，以便報名者可以收到確認郵件。
